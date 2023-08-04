@@ -1,0 +1,18 @@
+{
+  "en-CA": {
+    "name": "Inclusive Design Guide",
+    "description": "Strategies and best practices for inclusive design.",
+    "url": "https://idg-site.netlify.app",
+    "authorWebsite": "https://idrc.ocadu.ca/",
+    "authorEmail": "idrc@ocadu.ca",
+    "authorName": "Inclusive Design Research Centre"
+  },
+  "fr-CA": {
+    "name": "Guide pour une conception inclusive",
+    "description": "Stratégies et bonnes pratiques pour une conception inclusive.",
+    "url": "https://idg-site.netlify.app",
+    "authorWebsite": "https://idrc.ocadu.ca/",
+    "authorEmail": "idrc@ocadu.ca",
+    "authorName": "Centre de recherche sur la conception inclusive"
+  }
+}
