@@ -32,7 +32,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({"src/assets/images": "assets/images"});
     eleventyConfig.addPassthroughCopy({"node_modules/idg-design-system/dist/static/fonts": "assets/fonts"});
     eleventyConfig.addPassthroughCopy({"node_modules/idg-design-system/dist/static/svg": "assets/svg"});
-    eleventyConfig.addPassthroughCopy({"src/posts/images": "posts/images"});
     eleventyConfig.addPassthroughCopy({
         "node_modules/netlify-cms/dist/netlify-cms.js": "lib/cms/netlify-cms.js",
         "node_modules/nunjucks/browser/nunjucks-slim.min.js": "lib/cms/nunjucks-slim.min.js",
