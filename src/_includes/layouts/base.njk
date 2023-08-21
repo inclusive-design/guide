@@ -22,14 +22,19 @@
         <main>
             <article>
                 {% block pageHeader %}
-                <header>
+                <header class="prose flow">
                     <h1>{{ title }}</h1>
+                    {% if subhead %}
+                    <div class="subhead">
+                    {% renderString subhead, "md" %}
+                    </div>
+                    {% endif %}
                 </header>
                 {% endblock %}
                 <nav class="flc-toc-tocContainer"></nav>
                 {% block content %}
-                <div class="content">
-                {{ content | safe }}
+                <div class="prose flow">
+                        {{ content | safe }}
                 </div>
                 {% endblock %}
             </article>

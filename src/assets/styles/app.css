@@ -1,1 +1,12 @@
 @import "../../../node_modules/idg-design-system/dist/static/css/main.css";
+
+/** Variables **/
+:root {
+    --max-content-width: calc(690 / 16 * 1rem);
+    --flow-space: 1.5em;
+}
+
+/** Colours **/
+.bg-green-800 {
+    color: var(--fl-fgColor, var(--color-white));
+}
