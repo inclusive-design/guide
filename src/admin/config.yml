@@ -19,6 +19,7 @@ collections:
     extension: md
     create: true
     filter: {field: layout, value: layouts/page}
+    preview_path: preview/{{ uuid }}/
     fields:
       - {label: Title, name: title, widget: string, i18n: true}
       - {label: Subhead, name: subhead, widget: markdown, buttons: [bold, italic, link], editor_components: [], i18n: true}
@@ -26,7 +27,7 @@ collections:
       - {label: Navigation Order, name: order, widget: number, min: 0, i18n: duplicate}
       - {label: Navigation Label, name: key, widget: string, required: false, i18n: true}
       - {label: Excerpt, name: excerpt, widget: string, required: false, i18n: true}
-      - {label: Body, name: body, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, heading-four, quote, bulleted-list, numbered-list], editor_components: [block, calls-to-action], i18n: true}
+      - {label: Body, name: body, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, heading-four, quote, bulleted-list, numbered-list], editor_components: [content-block, call-to-action], i18n: true}
   - label: Site Configuration
     name: config
     i18n: false

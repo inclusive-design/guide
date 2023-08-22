@@ -2,3 +2,8 @@
 **/.DS_Store
 node_modules
 _site
+netlify/functions/preview/**
+!netlify/functions/preview/index.js
+
+# Local Netlify folder
+.netlify

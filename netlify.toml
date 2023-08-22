@@ -1,33 +1,82 @@
 [build]
-  command = "npm run build"
-  publish = "_site"
-  ignore = "git log -1 --pretty=%B | grep dependabot"
+command = "npm run build"
+publish = "_site"
+ignore = "git log -1 --pretty=%B | grep dependabot"
 
 [dev]
-  command = "npm run start"
-  targetPort = 8080
-  publish = "_site"
-  autoLaunch = false
-  framework = "#custom"
+command = "npm run start"
+targetPort = 8080
+publish = "_site"
+autoLaunch = false
+framework = "#custom"
 
 [[headers]]
-  for = "/admin/*"
+for = "/admin/*"
+
   [headers.values]
-    X-Robots-Tag = "noindex"
+  X-Robots-Tag = "noindex"
 
 [[headers]]
-  for = "**/404.html"
+for = "**/404.html"
+
   [headers.values]
-    X-Robots-Tag = "noindex"
+  X-Robots-Tag = "noindex"
 
-# If you are adding more languages, make a copy of the following block for each.
 [[redirects]]
-  from = "/fr/*"
-  to = "/fr/404.html"
-  status = 404
+from = "/preview/techniques/"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "preview"
 
-# English (or default language) 404 page must come last.
 [[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
+from = "/preview/practices/"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "preview"
+
+[[redirects]]
+from = "/preview/page-not-found/"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "preview"
+
+[[redirects]]
+from = "/preview/page-non-trouvee/"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "preview"
+
+[[redirects]]
+from = "/preview/insights/"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "preview"
+
+[[redirects]]
+from = "/preview/inclusive-design-guide/"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "preview"
+
+[[redirects]]
+from = "/preview/activities/"
+to = "/.netlify/functions/preview"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "preview"
+
+[[redirects]]
+from = "/fr/*"
+to = "/fr/404.html"
+status = 404
+
+[[redirects]]
+from = "/*"
+to = "/404.html"
+status = 404

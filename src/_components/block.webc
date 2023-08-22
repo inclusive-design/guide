@@ -1,5 +1,0 @@
-<div :class="'block bg-' + bg">
-	<div class="prose flow">
-		<slot></slot>
-	</div>
-</div>

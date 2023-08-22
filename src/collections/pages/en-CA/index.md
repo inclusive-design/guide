@@ -1,14 +1,13 @@
 ---
-title: " Inclusive Design Guide"
+title: Inclusive Design Guide
 subhead: |-
   **The basic theory and practice of Inclusive Design**\
   by the [Inclusive Design Research Centre](https://idrc.ocadu.ca)
 layout: layouts/page
 order: 0
+uuid: b4fd0674-6856-41de-a50a-d31532159812
 ---
-<block bg="green-100">
-
-
+<div class="content content--two-thirds bg-green-100">
 
 
 
@@ -18,11 +17,11 @@ The Inclusive Design Guide can be applied to digital design as well as to the de
 
 
 
+</div>
+
+<div class="content content--two-thirds bg-green-800">
 
 
-</block>
-
-<block bg="green-800">
 
 ## Three Dimensions of Inclusive Design
 
@@ -40,4 +39,19 @@ Inclusive design teams should be as diverse as possible and include individuals 
 
 It is the responsibility of inclusive designers to be aware of the context and broader impact of any design and strive to effect a beneficial impact beyond the intended beneficiary of the design.
 
-</block>
+
+
+</div>
+
+<div class="content content--full bg-transparent">
+  
+## What's in this guide
+
+{% callToAction "Insight", "/insights/", "insight" %}
+Things we value
+{% endcallToAction %}
+
+{% callToAction "Activities", "/activities/", "activity" %}
+Things we do with our collaborators and co-designers
+{% endcallToAction %}
+</div>
