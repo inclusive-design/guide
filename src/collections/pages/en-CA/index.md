@@ -5,7 +5,9 @@ subhead: |-
   by the [Inclusive Design Research Centre](https://idrc.ocadu.ca)
 layout: layouts/page
 order: 0
-uuid: b4fd0674-6856-41de-a50a-d31532159812
+permalink:
+  build: /
+  preview: "/preview/{{ title | slugify }}/"
 ---
 <div class="content content--two-thirds bg-green-100">
 

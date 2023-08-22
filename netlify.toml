@@ -5,7 +5,7 @@ ignore = "git log -1 --pretty=%B | grep dependabot"
 
 [dev]
 command = "npm run start"
-targetPort = 8080
+targetPort = 8_080
 publish = "_site"
 autoLaunch = false
 framework = "#custom"
@@ -21,6 +21,14 @@ for = "**/404.html"
 
   [headers.values]
   X-Robots-Tag = "noindex"
+
+[[redirects]]
+from = "/preview/*"
+status = 200
+force = true
+
+  [redirects.conditions]
+  Role = [ "admin" ]
 
 [[redirects]]
 from = "/preview/techniques/"
