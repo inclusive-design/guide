@@ -1,0 +1,5 @@
+iframe {
+    block-size: 100vh;
+    inline-size: 100vw;
+    min-inline-size: 20rem;
+}

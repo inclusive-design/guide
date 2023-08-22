@@ -17,27 +17,34 @@
         {% include "partials/global/scripts.njk" %}
     </head>
     <body class="{{ bodyClass if bodyClass else "page" }}">
+        {% if not eleventy.serverless %}
         {% uioTemplate %}
         {% include "partials/global/header.njk" %}
+        {% endif %}
         <main>
             <article>
                 {% block pageHeader %}
                 <header>
                     <h1>{{ title }}</h1>
+                    {% if subhead %}
+                    <div class="subhead">
+                    {% renderString subhead, "md" %}
+                    </div>
+                    {% endif %}
                 </header>
                 {% endblock %}
                 <nav class="flc-toc-tocContainer"></nav>
                 {% block content %}
-                <div class="content">
                 {{ content | safe }}
-                </div>
                 {% endblock %}
             </article>
         </main>
+        {% if not eleventy.serverless %}
         {% include "partials/global/footer.njk" %}
         {% uioInit supportedLanguages[locale].uioSlug, supportedLanguages[locale].dir %}
         {% if page.url === "/" %}
         <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        {% endif %}
         {% endif %}
     </body>
 </html>

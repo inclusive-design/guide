@@ -1,0 +1,6 @@
+{
+	"permalink": {
+		"build": "{{ '/' + lang if locale !== defaultLanguage }}/{{ title | slugify }}/",
+		"preview": "/preview/{{ title | slugify }}/"
+	}
+}
