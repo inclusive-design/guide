@@ -3,15 +3,11 @@
 const { $fetch } = require("ofetch");
 
 const fetchPages = async function (language = "en") {
-    const baseURL = process.env.DEPLOY_PRIME_URL ? "https://cms.guide.inclusivedesign.ca" : "http://localhost";
+    const baseURL = process.env.CMS_URL || "http://localhost";
     const username = process.env.CMS_USERNAME || "username";
     const password = process.env.CMS_PASSWORD || "password";
 
-    const apiFetch = $fetch.create({
-        baseURL
-    });
-
-    const response = await apiFetch("/api/query", {
+    const response = await $fetch(`${baseURL}/api/query`, {
         headers: {
             "Authorization": `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`,
             "X-Language": language
