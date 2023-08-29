@@ -1,23 +1,19 @@
 "use strict";
 
 const { $fetch } = require("ofetch");
-const https = require("https");
 
 const fetchPages = async function (language = "en") {
-    const baseURL = "http://admin.guide.test";
-    // const username = "test@inclusivedesign.ca";
-    // const password = "password";
+    const baseURL = process.env.DEPLOY_PRIME_URL ? "https://cms.guide.inclusivedesign.ca" : "http://localhost";
+    const username = process.env.CMS_USERNAME || "username";
+    const password = process.env.CMS_PASSWORD || "password";
 
     const apiFetch = $fetch.create({
-        baseURL,
-        agent: baseURL.startsWith("https://")
-            ? new https.Agent({ rejectUnauthorized: false })
-            : null
+        baseURL
     });
 
     const response = await apiFetch("/api/query", {
         headers: {
-            // "Authorization": `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`,
+            "Authorization": `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`,
             "X-Language": language
         },
         method: "post",
