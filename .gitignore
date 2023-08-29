@@ -7,3 +7,4 @@ netlify/functions/preview/**
 
 # Local Netlify folder
 .netlify
+.cache

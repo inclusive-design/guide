@@ -11,73 +11,10 @@ autoLaunch = false
 framework = "#custom"
 
 [[headers]]
-for = "/admin/*"
-
-  [headers.values]
-  X-Robots-Tag = "noindex"
-
-[[headers]]
 for = "**/404.html"
 
   [headers.values]
   X-Robots-Tag = "noindex"
-
-[[redirects]]
-from = "/preview/*"
-status = 200
-force = true
-
-  [redirects.conditions]
-  Role = [ "admin" ]
-
-[[redirects]]
-from = "/preview/techniques/"
-to = "/.netlify/functions/preview"
-status = 200
-force = true
-_generated_by_eleventy_serverless = "preview"
-
-[[redirects]]
-from = "/preview/practices/"
-to = "/.netlify/functions/preview"
-status = 200
-force = true
-_generated_by_eleventy_serverless = "preview"
-
-[[redirects]]
-from = "/preview/page-not-found/"
-to = "/.netlify/functions/preview"
-status = 200
-force = true
-_generated_by_eleventy_serverless = "preview"
-
-[[redirects]]
-from = "/preview/page-non-trouvee/"
-to = "/.netlify/functions/preview"
-status = 200
-force = true
-_generated_by_eleventy_serverless = "preview"
-
-[[redirects]]
-from = "/preview/insights/"
-to = "/.netlify/functions/preview"
-status = 200
-force = true
-_generated_by_eleventy_serverless = "preview"
-
-[[redirects]]
-from = "/preview/inclusive-design-guide/"
-to = "/.netlify/functions/preview"
-status = 200
-force = true
-_generated_by_eleventy_serverless = "preview"
-
-[[redirects]]
-from = "/preview/activities/"
-to = "/.netlify/functions/preview"
-status = 200
-force = true
-_generated_by_eleventy_serverless = "preview"
 
 [[redirects]]
 from = "/fr/*"

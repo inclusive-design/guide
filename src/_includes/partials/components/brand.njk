@@ -1,7 +1,7 @@
-{% if locale and lang !== defaultLanguage %}
+{% if locale and locale !== defaultLanguage %}
 {% set homeUrl = "/" + supportedLanguages[locale].slug %}
 {% else %}
-{% set lang = defaultLanguage %}
+{% set locale = defaultLanguage %}
 {% set homeUrl = "/" %}
 {% endif %}
 
