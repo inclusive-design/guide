@@ -1,0 +1,28 @@
+---
+layout: layouts/base
+pagination:
+  data: pages
+  size: 1
+  alias: self
+permalink:
+  build: "{{ self | permalink }}"
+  preview: "/preview/{{ self.uuid | replace('://', '/') }}/"
+---
+{% set locale = self.locale %}
+{% set title = self.title %}
+{% set subhead = self.subhead %}
+{% for block in self.blocks %}
+{% if block.type == 'section' %}
+{% if block.content.width or block.content.background %}
+<div class="content content--{{ block.content.width }}{{ ' bg-' + block.content.background if block.content.background }}">
+{{ block.content.text | safe }}
+</div>
+{% else %}
+{{ block.content.text | safe }}
+{% endif %}
+{% elseif block.type == 'call-to-action' %}
+{% callToAction block.content.title, block.content.link, block.content.type %}
+{{ block.content.description }}
+{% endcallToAction %}
+{% endif %}
+{% endfor %}

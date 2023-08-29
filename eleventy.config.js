@@ -18,6 +18,7 @@ const rssPlugin = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 const callToActionShortcode = require("./src/_shortcodes/call-to-action.js");
+const permalinkFilter = require("./src/_filters/permalink.js");
 
 // Import transforms
 const parseTransform = require("./src/_transforms/parse-transform.js");
@@ -27,20 +28,13 @@ module.exports = function (eleventyConfig) {
 
     // Transforms
     eleventyConfig.addTransform("parse", parseTransform);
+    eleventyConfig.addFilter("permalink", permalinkFilter);
 
     // Passthrough copy
-    eleventyConfig.addPassthroughCopy({"src/admin/config.yml": "admin/config.yml"});
     eleventyConfig.addPassthroughCopy({"src/assets/icons": "/"});
     eleventyConfig.addPassthroughCopy({"src/assets/images": "assets/images"});
     eleventyConfig.addPassthroughCopy({"node_modules/idg-design-system/dist/static/fonts": "assets/fonts"});
     eleventyConfig.addPassthroughCopy({"node_modules/idg-design-system/dist/static/svg": "assets/svg"});
-    eleventyConfig.addPassthroughCopy({
-        "node_modules/decap-cms/dist/decap-cms.js": "lib/cms/decap-cms.js",
-        "node_modules/decap-cms/dist/decap-cms.js.map": "lib/cms/decap-cms.js.map",
-        "node_modules/prop-types/prop-types.min.js": "lib/cms/prop-types.min.js",
-        "node_modules/react/umd/react.development.js": "lib/cms/react.development.js",
-        "node_modules/react/umd/react.production.min.js": "lib/cms/react.production.min.js"
-    });
 
     // Plugins
     eleventyConfig.addPlugin(fluidPlugin, {
