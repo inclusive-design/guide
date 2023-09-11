@@ -4,7 +4,7 @@
                 <span>{{ site[locale].name }}</span>
         </a>
         <div class="footer-content">
-                <div class="footer-credit">
+                <div class="footer-column">
                         <h4>{{ _("Created by") }}</h4>
                         <p>
                                 {{ _("The community members of the") }}
@@ -15,14 +15,15 @@
                         <h4>{{ _("Licensed under") }}</h4>
                         <a href="https://creativecommons.org/licenses/by/3.0/">{{ _("Creative Commons CC BY 3.0") }}</a>
                 </div>
-                <div class="footer-resources">
+                <div class="footer-column">
                         <h4>{{ _("Other design guides by the IDRC") }}</h4>
                         <a href="https://co-design.inclusivedesign.ca/">{{ _("Community-led co-design kit") }}</a>
                         <a href="https://handbook.floeproject.org/">{{ _("Inclusive Learning Design Handbook") }}</a>
                 </div>
-                <div class="footer-sponsors">
-                        <h4>{{ _("Supported by") }}</h4>
+                <div class="footer-column">
+                        {# <h4>{{ _("Supported by") }}</h4> #}
                         <h4>{{ _("Hosted with") }}</h4>
+                        <a rel="external" href="https://netlify.com">Netlify</a>
                 </div>
         </div>
 </footer>
