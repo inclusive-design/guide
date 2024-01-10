@@ -36,10 +36,6 @@ article .content > * + * {
     margin-block-start: 1em;
 }
 
-article .content + *:not(.content) {
-    margin-block-start: 4rem;
-}
-
 article * + .content {
     margin-block-start: 5rem;
 }
@@ -54,8 +50,13 @@ article .content + .content {
     margin-block-start: var(--space-m);
 }
 
+.call-to-action + .content {
+    margin-block-start: var(--space-2xl);
+    padding-block-start: 0;
+}
+
 *:not(.call-to-action) + .call-to-action {
-    margin-block-start: var(--space-xl);
+    margin-block-start: calc(-1 * var(--space-xl));
 }
 
 /** TODO: Style UIO table of contents **/

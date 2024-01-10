@@ -1,3 +1,6 @@
+            {% if not locale %}
+            {% set locale = self.locale %}
+            {% endif %}
             <nav aria-labelledby="navigation" x-data="{open: false}">
                 {% include "partials/components/brand.njk" %}
                 <button aria-expanded="false" x-bind:aria-expanded="open" @click="open = !open">
@@ -8,14 +11,20 @@
                 <div class="inner flow">
                     <h2 id="navigation">{% _ locale, "Menu" %}</h2>
                     <ul role="list">
-                        {% set navItems = collections.all | eleventyNavigation %}
-                        {% for item in navItems %}
-                        {% if locale === item.lang %}
+                    {% for item in pages %}
+                        {% if item.order > 1 and item.locale === locale %}
                         <li>
-                        <a class="--{{ item.title | slugify }}" href="{{ item.url | url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+                            <a class="--{{ item.uid }}" href="{{ item | permalink }}"{% if item | permalink == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
                         </li>
                         {% endif %}
-                        {% endfor %}
+                    {% endfor %}
+                    {% for item in index %}
+                        {% if item.uid === self.uid and item.locale != self.locale %}
+                        <li>
+                            <a hreflang="{{ item.locale }}" href="{{ item | permalink }}">{{ "English" if item.locale === "en-CA" else 'Français' }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
                     </ul>
                 </div>
             </nav>

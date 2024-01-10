@@ -1,0 +1,25 @@
+---
+layout: layouts/base
+pagination:
+  data: index
+  size: 1
+  alias: self
+permalink: "/{{ self | permalink }}"
+---
+{% set locale = self.locale %}
+{% set title = self.title %}
+{% set subhead = self.subhead %}
+<div class="content">
+{{ self.content | safe }}
+</div>
+
+{% if self.related %}
+<h2>{% _ locale, "Use" %}</h2>
+<div class="cards">
+{% for item in index %}
+{% if item.locale === locale and self.related.includes(item.uuid) %}
+{% include "partials/components/card.njk" %}
+{% endif %}
+{% endfor %}
+</div>
+{% endif %}
