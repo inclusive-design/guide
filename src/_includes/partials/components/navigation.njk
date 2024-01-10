@@ -14,7 +14,14 @@
                     {% for item in pages %}
                         {% if item.order > 1 and item.locale === locale %}
                         <li>
-                            <a class="--{{ item.slug }}" href="{{ item | permalink }}"{% if item | permalink == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+                            <a class="--{{ item.uid }}" href="{{ item | permalink }}"{% if item | permalink == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                    {% for item in index %}
+                        {% if item.uid === self.uid and item.locale != self.locale %}
+                        <li>
+                            <a hreflang="{{ item.locale }}" href="{{ item | permalink }}">{{ "English" if item.locale === "en-CA" else 'Français' }}</a>
                         </li>
                         {% endif %}
                     {% endfor %}

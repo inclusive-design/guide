@@ -16,7 +16,6 @@ const fluidPlugin = require("eleventy-plugin-fluid");
 const navigationPlugin = require("@11ty/eleventy-navigation");
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlightPlugin = require("@11ty/eleventy-plugin-syntaxhighlight");
-const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 const callToActionShortcode = require("./src/_shortcodes/call-to-action.js");
 const permalinkFilter = require("./src/_filters/permalink.js");
 
@@ -29,12 +28,19 @@ module.exports = function (eleventyConfig) {
     // Transforms
     eleventyConfig.addTransform("parse", parseTransform);
     eleventyConfig.addFilter("permalink", permalinkFilter);
+    eleventyConfig.addFilter("getVarFromString", function (varName) {
+        return this.getVariables()[varName];
+    });
 
     // Passthrough copy
-    eleventyConfig.addPassthroughCopy({"src/assets/icons": "/"});
-    eleventyConfig.addPassthroughCopy({"src/assets/images": "assets/images"});
-    eleventyConfig.addPassthroughCopy({"node_modules/idg-design-system/dist/static/fonts": "assets/fonts"});
-    eleventyConfig.addPassthroughCopy({"node_modules/idg-design-system/dist/static/svg": "assets/svg"});
+    eleventyConfig.addPassthroughCopy({ "src/assets/icons": "/" });
+    eleventyConfig.addPassthroughCopy({ "src/assets/images": "assets/images" });
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/idg-design-system/dist/static/fonts": "assets/fonts"
+    });
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/idg-design-system/dist/static/svg": "assets/svg"
+    });
 
     // Plugins
     eleventyConfig.addPlugin(fluidPlugin, {
@@ -61,10 +67,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(navigationPlugin);
     eleventyConfig.addPlugin(rssPlugin);
     eleventyConfig.addPlugin(syntaxHighlightPlugin);
-    eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
-        name: "preview",
-        functionsDir: "./netlify/functions/"
-    });
 
     // Shortcodes
     eleventyConfig.addPairedShortcode("callToAction", callToActionShortcode);

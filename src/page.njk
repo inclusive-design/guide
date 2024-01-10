@@ -4,9 +4,7 @@ pagination:
   data: pages
   size: 1
   alias: self
-permalink:
-  build: "{{ self | permalink }}"
-  preview: "/preview/{{ self.uuid | replace('://', '/') }}/"
+permalink: "{{ self | permalink }}"
 ---
 {% set locale = self.locale %}
 {% set title = self.title %}
@@ -26,3 +24,13 @@ permalink:
 {% endcallToAction %}
 {% endif %}
 {% endfor %}
+
+{% if self.children %}
+<div class="cards">
+{% for item in index %}
+{% if item.locale === locale and item.parent.slug === self.slug %}
+{% include "partials/components/card.njk" %}
+{% endif %}
+{% endfor %}
+</div>
+{% endif %}

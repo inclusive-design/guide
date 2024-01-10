@@ -1,6 +1,8 @@
 "use strict";
 
-const fetchPages = async function (language = "en") {
+const categories = require("./categories.json");
+
+const fetchIndex = async function (language = "en") {
     const baseURL = process.env.CMS_URL || "http://localhost";
     const apiToken = process.env.CMS_API_TOKEN || "test";
 
@@ -13,15 +15,14 @@ const fetchPages = async function (language = "en") {
         },
         method: "post",
         body: JSON.stringify({
-            query: "site.children",
+            query: "site.index",
             select: {
                 title: true,
                 subhead: true,
-                blocks: "page.blocks.toBlocks",
-                children: `page.children('${language}')`,
+                parent: true,
                 uuid: true,
-                slug: true,
                 uid: true,
+                slug: true,
                 order: "page.num"
             }
         })
@@ -31,15 +32,23 @@ const fetchPages = async function (language = "en") {
 };
 
 module.exports = async function () {
-    const responseEn = await fetchPages();
-    const responseFr = await fetchPages("fr");
+    const responseEn = await fetchIndex();
+    const responseFr = await fetchIndex("fr");
 
     responseEn.result.map((page) => {
+        page.uuid = page.uuid.replace(/page:\/\//g, "");
         page.locale = "en-CA";
+        page.category = page.parent
+            ? categories[page.parent.uid]["en-CA"]
+            : null;
     });
 
     responseFr.result.map((page) => {
+        page.uuid = page.uuid.replace(/page:\/\//g, "");
         page.locale = "fr-CA";
+        page.category = page.parent
+            ? categories[page.parent.uid]["en-CA"]
+            : null;
     });
 
     return responseEn.result.concat(responseFr.result);

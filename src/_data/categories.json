@@ -1,0 +1,18 @@
+{
+    "activities": {
+        "en-CA": "Activity",
+        "fr-CA": "Activité"
+    },
+    "insights": {
+        "en-CA": "Insight",
+        "fr-CA": "Connaissance"
+    },
+    "practices": {
+        "en-CA": "Practice",
+        "fr-CA": "Pratique"
+    },
+    "techniques": {
+        "en-CA": "Technique",
+        "fr-CA": "Technique"
+    }
+}
