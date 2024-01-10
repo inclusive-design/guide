@@ -1,3 +1,6 @@
+{% if not locale %}
+{% set locale = self.locale %}
+{% endif %}
 <footer class="footer bg-green-800" role="contentinfo">
         <a class="logo" rel="home" href="/">
                 {% include "node_modules/idg-design-system/dist/static/svg/idrc.svg" %}
@@ -5,24 +8,23 @@
         </a>
         <div class="footer-content">
                 <div class="footer-column">
-                        <h4>{{ _("Created by") }}</h4>
+                        <h4>{% _ locale, "Created by" %}</h4>
                         <p>
-                                {{ _("The community members of the") }}
-                                <a href="https://idrc.ocadu.ca/">{{ _("Inclusive Design Research Centre") }}</a>
-                                {{ _("at") }}
-                                <a href="https://www.ocadu.ca/">{{ _("OCAD University") }}</a>
+                                {% _ locale, "The community members of the" %}
+                                <a href="https://idrc.ocadu.ca/">{% _ locale, "Inclusive Design Research Centre" %}</a>
+                                {% _ locale, "at" %}
+                                <a href="https://www.ocadu.ca/">{% _ locale, "OCAD University" %}</a>
                         </p>
-                        <h4>{{ _("Licensed under") }}</h4>
-                        <a href="https://creativecommons.org/licenses/by/3.0/">{{ _("Creative Commons CC BY 3.0") }}</a>
+                        <h4>{% _ locale, "Licensed under" %}</h4>
+                        <a href="https://creativecommons.org/licenses/by/3.0/">{% _ locale, "Creative Commons CC BY 3.0" %}</a>
                 </div>
                 <div class="footer-column">
-                        <h4>{{ _("Other design guides by the IDRC") }}</h4>
-                        <a href="https://co-design.inclusivedesign.ca/">{{ _("Community-led co-design kit") }}</a>
-                        <a href="https://handbook.floeproject.org/">{{ _("Inclusive Learning Design Handbook") }}</a>
+                        <h4>{% _ locale, "Other design guides by the IDRC" %}</h4>
+                        <a href="https://co-design.inclusivedesign.ca/">{% _ locale, "Community-led co-design kit" %}</a>
+                        <a href="https://handbook.floeproject.org/">{% _ locale, "Inclusive Learning Design Handbook" %}</a>
                 </div>
                 <div class="footer-column">
-                        {# <h4>{{ _("Supported by") }}</h4> #}
-                        <h4>{{ _("Hosted with") }}</h4>
+                        <h4>{% _ locale, "Hosted with" %}</h4>
                         <a rel="external" href="https://netlify.com">Netlify</a>
                 </div>
         </div>
