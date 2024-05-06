@@ -4,7 +4,7 @@ module.exports = {
     extends: [
         "fluid",
         "plugin:yml/standard",
-        "plugin:markdown/recommended"
+        "plugin:markdown/recommended-legacy"
     ],
     ignorePatterns: ["_site", "netlify", "src/_locales/messages.js", "!.*.cjs", "!.*.js"],
     env: {
