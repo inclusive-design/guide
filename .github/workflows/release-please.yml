@@ -2,7 +2,7 @@ name: Publish release
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   release-please:
@@ -12,6 +12,3 @@ jobs:
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: node
-          package-name: "@inclusive-design/guide"
-          pull-request-title-pattern: "chore(release): release${component} ${version}"

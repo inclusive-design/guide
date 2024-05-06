@@ -16,7 +16,7 @@
         "start": "npm-run-all -l clean -p start:*",
         "start:eleventy": "cross-env NODE_ENV=development eleventy --serve",
         "start:cms": "decap-server",
-        "prepare": "husky install"
+        "prepare": "husky"
     },
     "repository": {
         "type": "git",
